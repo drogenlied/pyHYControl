@@ -1,0 +1,215 @@
+0:
+    unit: discrete
+    scale: 1
+    description: Lock parameters against changes
+    short: parameter lock
+
+1:
+    unit: discrete
+    scale: 1
+    description: Source of run command
+    short: run source
+
+2:
+    unit: discrete
+    scale: 1
+    description: Source of operating frequency
+    short: frequency source
+
+3:
+    unit: Hz
+    scale: 0.01
+    description: main motor running frequency
+    short: main frequency
+
+4:
+    unit: Hz
+    scale: 0.01
+
+5:
+    unit: Hz
+    scale: 0.01
+
+6:
+    unit: Hz
+    scale: 0.01
+
+7:
+    unit: Hz
+    scale: 0.01
+
+8:
+    unit: V
+    scale: 0.1
+
+9:
+    unit: V
+    scale: 0.1
+
+10:
+    unit: V
+    scale: 0.1
+
+11:
+    unit: Hz
+    scale: 0.01
+
+12:
+    unit: reserved
+    scale: 1
+    decription: reserved
+    short: reserved
+
+13:
+    unit: discrete
+    scale: 1
+    decription: Reset system
+    short: reset system
+
+14:
+    unit: s
+    scale: 0.1
+    description: Acceleration Time 1
+    short: accel time 1
+
+15:
+    unit: s
+    scale: 0.1
+    description: Deceleration Time 1
+    short: decel time 1
+
+16:
+    unit: s
+    scale: 0.1
+    description: Acceleration Time 2
+    short: accel time 2
+
+17:
+    unit: s
+    scale: 0.1
+    description: Deceleration Time 2
+    short: decel time 2
+
+18:
+    unit: s
+    scale: 0.1
+    description: Acceleration Time 3
+    short: accel time 3
+
+19:
+    unit: s
+    scale: 0.1
+    description: Deceleration Time 3
+    short: decel time 3
+
+20:
+    unit: s
+    scale: 0.1
+    description: Acceleration Time 4
+    short: accel time 4
+
+21:
+    unit: s
+    scale: 0.1
+    description: Deceleration Time 4
+    short: decel time 4
+
+22:
+    unit: reserved
+    scale: 1
+    decription: reserved
+    short: reserved
+
+23:
+    unit: discrete
+    scale: 1
+    decription: Allow reverse rotation
+    short: reverse
+    
+24:
+    unit: discrete
+    scale: 1
+    decription: STOP key select
+    short: stop key
+
+25:
+    unit: discrete
+    scale: 1
+    decription: Starting mode
+    short: start mode
+
+26:
+    unit: discrete
+    scale: 1
+    decription: Stopping mode
+    short: stop mode
+
+27:
+    unit: Hz
+    scale: 0.1
+
+28:
+    unit: Hz
+    scale: 0.1
+
+29:
+    unit: s
+    scale: 0.1
+
+30:
+    unit: s
+    scale: 0.1
+
+31:
+    unit: '%'
+    scale: 0.1
+    description: braking level
+
+32:
+    unit: s
+    scale: 0.1
+
+33:
+    unit: s
+    scale: 0.1
+
+34:
+    unit: s
+    scale: 0.1
+
+35:
+    unit: reserved
+    scale: 1
+    decription: reserved
+    short: reserved
+
+36:
+    unit: reserved
+    scale: 1
+    decription: reserved
+    short: reserved
+
+37:
+    unit: reserved
+    scale: 1
+    decription: reserved
+    short: reserved
+
+38:
+    unit: reserved
+    scale: 1
+    decription: reserved
+    short: reserved
+
+39:
+    unit: reserved
+    scale: 1
+    decription: reserved
+    short: reserved
+
+40:
+    unit: reserved
+    scale: 1
+    decription: reserved
+    short: reserved
+

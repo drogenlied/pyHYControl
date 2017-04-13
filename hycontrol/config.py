@@ -23,9 +23,9 @@ class VFDConf:
 
 class Register:
 
-    def __init__(self, address, unit='', unit_scale='', description='', short='', **kwargs):
+    def __init__(self, address, unit='', scale='', description='', short='', **kwargs):
         self.address = address
-        self.scale = unit_scale
+        self.scale = scale
         self.unit = unit
         self.description = description
         self.shortdesc = short
@@ -34,6 +34,9 @@ class Register:
     def __str__(self):
         return """PD{0:03d}: {1} unit: {2} scale: {3}
     {3}\n""".format(self.address, self.shortdesc, self.description, self.unit, self.scale)
+
+    def format_value(self, value):
+        return 'PD{0:03d}: {1} {2}'.format(self.address, value * self.scale, self.unit)
 
 class RegisterMap:
 
