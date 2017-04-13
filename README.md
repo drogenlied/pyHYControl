@@ -14,3 +14,4 @@ I recommend that you set the following parameters by hand before attempting to c
  - PD164: 1 (Communication Baud Rate: 9600)
  - PD165: 3 (Communication Data Method: 8N1 RTU)
 
+Afterwards, communicating with the VFD controller through an RS232 to RS485 is straightforward.
