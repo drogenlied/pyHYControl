@@ -49,3 +49,64 @@ class RegisterMap:
 
     def reg(self, addr):
         return self.m[addr]
+
+
+control_status = {
+    0: 'run',
+    1: 'jog',
+    2: 'reserved',
+    3: 'running',
+    4: 'jogging',
+    5: 'reserved',
+    6: 'braking',
+    7: 'track start',
+    8: '?',
+    9: '?'
+    }
+
+control_commands = {
+    0: 'run',
+    1: 'forward',
+    2: 'reverse',
+    3: 'stop',
+    4: 'reserved',
+    5: 'jog',
+    6: 'jogf',
+    7: 'jogr',
+    }
+
+control_values = {
+    0: {
+        'name': 'set frequency',
+        'unit': 'Hz',
+        'scale': 0.01 },
+    1: {
+        'name': 'output frequency',
+        'unit': 'Hz',
+        'scale': 0.01 },
+    2: {
+        'name': 'output current',
+        'unit': 'A',
+        'scale': 1 },
+    3: {
+        'name': 'rott',
+        'unit': 'rpm',
+        'scale': 1 },
+    4: {
+        'name': 'DC voltage',
+        'unit': 'V',
+        'scale': 0.1 },
+    5: {
+        'name': 'AC voltage',
+        'unit': 'V',
+        'scale': 0.1 },
+    6: {
+        'name': 'cont',
+        'unit': 'A',
+        'scale': 1 },
+    7: {
+        'name': 'tmp',
+        'unit': 'C',
+        'scale': 1 }
+}
+

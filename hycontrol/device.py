@@ -2,6 +2,7 @@
 import crcmod
 import struct
 import serial
+from .config import control_commands, control_status, control_values
 
 crc16 = crcmod.predefined.mkPredefinedCrcFun('modbus')
 
@@ -19,6 +20,8 @@ def check_crc(message):
 
 def check_msg(message):
     if check_crc(message):
+        if int(message[1]) & 0xF0 > 0:
+            print('Execution error:', hex(int(message[1])))
         dlen = message[2]
         data = message[3:-2]
         return int(dlen) == len(data)
@@ -35,8 +38,8 @@ class VFDDevice:
 
     def __init__(self, config, regmap):
         self.config = config
-        self.m = regmap
         self.conn = None
+        self.m = regmap
 
     def connect(self):
         self.conn = serial.Serial(
@@ -68,8 +71,11 @@ class VFDDevice:
             param = data[0]
             value = int.from_bytes(bytes(data[1:]), byteorder='big')
             print('read:', self.m.reg(parameter).format_value(value))
+            ret = value * self.m.reg(parameter).scale, self.m.reg(parameter).unit
         else:
             print_msg_error(ans)
+            ret = -1, 'Error'
+        return ret
 
     def write_function_data(self, parameter, data):
         pdata = [parameter]
@@ -82,39 +88,69 @@ class VFDDevice:
         self.conn.write(bytes(packet))
         ans = self.conn.read(8)
         if check_msg(ans):
-            data = ans[3:-2]
-            param = data[0]
-            value = int.from_bytes(bytes(data[1:]), byteorder='big')
+            rdata = ans[3:-2]
+            param = rdata[0]
+            value = int.from_bytes(bytes(rdata[1:]), byteorder='big')
             print('written:', self.m.reg(parameter).format_value(value))
+            ret = value * self.m.reg(parameter).scale, self.m.reg(parameter).unit
         else:
             print_msg_error(ans)
+            ret = -1, 'Error'
+        return ret
 
-    def write_control_data(self, parameter, data):
-        packet = self.build_packet(0x03, data)
+    def write_control_data(self, data):
+        packet = self.build_packet(0x03, [data])
         self.conn.write(bytes(packet))
         ans = self.conn.read(6)
         if check_msg(ans):
-            print()
+            rdata = ans[3:-2]
+            value = int.from_bytes(bytes(rdata), byteorder='big')
+            print('Command:', control_commands[int(data)])
+            print('Status:', control_status[value])
+            ret = value
         else:
             print_msg_error(ans)
+            ret = -1
+        return ret
 
-    def read_control_data(self, parameter, data):
-        packet = self.build_packet(0x04, data)
+    def read_control_data(self, parameter):
+        packet = self.build_packet(0x04, [parameter])
         self.conn.write(bytes(packet))
         ans = self.conn.read(8)
         if check_msg(ans):
-            print(data)
+            rdata = ans[3:-2]
+            value = int.from_bytes(bytes(rdata[1:]), byteorder='big')
+            cval = control_values[int(parameter)]
+            #print(
+            #    cval['name'],
+            #    value * cval['scale'],
+            #    cval['unit'])
+            ret = value * cval['scale'], cval['unit']
         else:
             print_msg_error(ans)
+            ret = -1, "Error"
+        return ret
 
     def write_freq(self, freq):
-        packet = self.build_packet(0x05, freq)
+        pdata = []
+        if freq == 0:
+            pdata.extend([0, 0])
+        else:
+            pdata.extend(
+                list((freq * 100).to_bytes(2, 'big')))
+
+        packet = self.build_packet(0x05, pdata)
         self.conn.write(bytes(packet))
-        ans = self.conn.read(7)
+        ans = self.conn.read(8)
         if check_msg(ans):
-            print(ans)
+            rdata = ans[3:-2]
+            value = int.from_bytes(bytes(rdata), byteorder='big')
+            print('Set frequency command:', value/100)
+            ret = value/100
         else:
             print_msg_error(ans)
+            ret = -1
+        return ret
 
     def loop_test(self, data):
         packet = self.build_packet(0x08, data)
@@ -124,6 +160,12 @@ class VFDDevice:
             data = ans[3:-2]
             param = data[0]
             print(list(data))
+            ret = True
         else:
             print_msg_error(ans)
+            ret = False
+        return ret
 
+    def print_status(self):
+        for i in range(8):
+            self.read_control_data(i)
