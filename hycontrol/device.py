@@ -25,6 +25,11 @@ def check_msg(message):
     else:
         return False
 
+def print_msg_error(message):
+    print('Comm error:')
+    print(message)
+    print('calc_crc:', hy_crc(message[:-2]), 'sent_crc:', list(message[-2:]))
+    print('data_length:', len(message[3:-2]), 'sent_length:', int(message[2]))
 
 class VFDDevice:
 
@@ -39,6 +44,9 @@ class VFDDevice:
             baudrate=self.config.rate,
             timeout=self.config.timeout)
 
+    def is_parameter_reserved(self, parameter):
+        return 'reserved' in self.m.reg(parameter).unit
+
     def build_packet(self, function, data):
         packet = []
         packet.append(self.config.address)
@@ -51,7 +59,7 @@ class VFDDevice:
         #print('BUILD:', packet)
         return packet
 
-    def read_fc_data(self, parameter):
+    def read_function_data(self, parameter):
         packet = self.build_packet(0x01, [parameter])
         self.conn.write(bytes(packet))
         ans = self.conn.read(8)
@@ -59,14 +67,27 @@ class VFDDevice:
             data = ans[3:-2]
             param = data[0]
             value = int.from_bytes(bytes(data[1:]), byteorder='big')
-            print(self.m.reg(parameter).format_value(value))
+            print('read:', self.m.reg(parameter).format_value(value))
+        else:
+            print_msg_error(ans)
 
-    def write_fc_data(self, parameter, data):
-        packet = self.build_packet(0x02, data)
+    def write_function_data(self, parameter, data):
+        pdata = [parameter]
+        if data == 0:
+            pdata.append(0)
+        else:
+            pdata.extend(
+                list(data.to_bytes((data.bit_length() + 7) // 8, 'big')))
+        packet = self.build_packet(0x02, pdata)
         self.conn.write(bytes(packet))
         ans = self.conn.read(8)
         if check_msg(ans):
-            print(data)
+            data = ans[3:-2]
+            param = data[0]
+            value = int.from_bytes(bytes(data[1:]), byteorder='big')
+            print('written:', self.m.reg(parameter).format_value(value))
+        else:
+            print_msg_error(ans)
 
     def write_control_data(self, parameter, data):
         packet = self.build_packet(0x03, data)
@@ -74,6 +95,8 @@ class VFDDevice:
         ans = self.conn.read(6)
         if check_msg(ans):
             print()
+        else:
+            print_msg_error(ans)
 
     def read_control_data(self, parameter, data):
         packet = self.build_packet(0x04, data)
@@ -81,6 +104,8 @@ class VFDDevice:
         ans = self.conn.read(8)
         if check_msg(ans):
             print(data)
+        else:
+            print_msg_error(ans)
 
     def write_freq(self, freq):
         packet = self.build_packet(0x05, freq)
@@ -88,13 +113,17 @@ class VFDDevice:
         ans = self.conn.read(7)
         if check_msg(ans):
             print(ans)
+        else:
+            print_msg_error(ans)
 
     def loop_test(self, data):
         packet = self.build_packet(0x08, data)
         self.conn.write(bytes(packet))
         ans = self.conn.read(len(packet))
         if check_msg(ans):
-            print(ans)
+            data = ans[3:-2]
+            param = data[0]
+            print(list(data))
         else:
-            print('Comm error: no checksum match')
+            print_msg_error(ans)
 

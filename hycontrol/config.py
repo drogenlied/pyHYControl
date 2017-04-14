@@ -3,7 +3,7 @@ import yaml
 
 class VFDConf:
 
-    def __init__(self, port= '/dev/ttyUSB0', rate=9600, address=1, timeout=1):
+    def __init__(self, port='/dev/ttyUSB0', rate=9600, address=1, timeout=1):
         self.port = port
         self.rate = rate
         self.address = address
