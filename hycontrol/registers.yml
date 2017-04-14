@@ -213,3 +213,963 @@
     decription: reserved
     short: reserved
 
+41:
+    unit: discrete
+    scale: 1
+    description:
+    short: carrier frequency
+
+42:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: jogging frequency
+
+43:
+    unit: s
+    scale: 1
+    description:
+    short: s curve time
+
+44:
+    unit: discrete
+    scale: 1
+    description:
+    short: for term
+
+45:
+    unit: discrete
+    scale: 1
+    description:
+    short: rev term
+
+46:
+    unit: discrete
+    scale: 1
+    description:
+    short: rst term
+
+47:
+    unit: discrete
+    scale: 1
+    description:
+    short: sph term
+
+48:
+    unit: discrete
+    scale: 1
+    description:
+    short: spl term
+
+49:
+    unit: discrete
+    scale: 1
+    description:
+    short: spm term
+
+50:
+    unit: discrete
+    scale: 1
+    description:
+    short: y1 out
+
+51:
+    unit: discrete
+    scale: 1
+    description:
+    short: y2 out
+
+52:
+    unit: discrete
+    scale: 1
+    description:
+    short: fa, fb, fc
+
+53:
+    unit: discrete
+    scale: 1
+    description:
+    short: ka, kb
+
+54:
+    unit: discrete
+    scale: 1
+    description:
+    short: vo output
+
+55:
+    unit: '%'
+    scale: 0.1
+    description:
+    short: vo gain
+
+56:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: skip freq 1
+
+57:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: skip freq 2
+
+58:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: skip freq 3
+
+59:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: skip freq range
+
+60:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: uniform freq 1
+
+61:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: uniform freq 2
+
+62:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: uniform freq range
+
+63:
+    unit: s
+    scale: 0.1
+    description:
+    short: timer 1 time
+
+64:
+    unit: s
+    scale: 1
+    description:
+    short: timer 2 time
+
+65:
+    unit: counts
+    scale: 1
+    description:
+    short: counting value set
+
+66:
+    unit: counts
+    scale: 1
+    description:
+    short: intermediate counter
+
+67:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+68:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+69:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+70:
+    unit: discrete
+    scale: 1
+    description:
+    short: analog in
+
+71:
+    unit: arbitrary
+    scale: 1
+    description:
+    short: analog filter const
+
+72:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: high analog freq
+
+73:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: low analog freq
+
+74:
+    unit: discrete
+    scale: 1
+    description:
+    short: high freq bias
+
+75:
+    unit: discrete
+    scale: 1
+    description:
+    short: low freq bias
+
+76:
+    unit: discrete
+    scale: 1
+    description:
+    short: analog reverese bias
+
+77:
+    unit: discrete
+    scale: 1
+    description:
+    short: up/down fct
+
+78:
+    unit: discrete
+    scale: 1
+    description:
+    short: up/down speed
+
+79:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+80:
+    unit: discrete
+    scale: 1
+    description:
+    short: plc operation
+
+81:
+    unit: discrete
+    scale: 1
+    description:
+    short: internal multispeed
+
+82:
+    unit: discrete
+    scale: 1
+    description:
+    short: after 8 runnind dir
+
+83:
+    unit: discrete
+    scale: 1
+    description:
+    short: before 8 running dir
+
+84:
+    unit: s
+    scale: 1
+    description:
+    short: before 8 ramp time
+
+85:
+    unit: s
+    scale: 1
+    description:
+    short: after 8 ramp time
+
+86:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 2
+    short: freq 2
+
+87:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 3
+    short: freq 3
+
+88:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 4
+    short: freq 4
+
+89:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 5
+    short: freq 5
+
+90:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 6
+    short: freq 6
+
+91:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 7
+    short: freq 7
+
+92:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 8
+    short: freq 8
+
+93:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 9
+    short: freq 9
+
+94:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 10
+    short: freq 10
+
+95:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 11
+    short: freq 11
+
+96:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 12
+    short: freq 12
+
+97:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 13
+    short: freq 13
+
+98:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 14
+    short: freq 14
+
+99:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 15
+    short: freq 15
+
+100:
+    unit: Hz
+    scale: 0.01
+    description: Frequency No. 16
+    short: freq 16
+
+101:
+    unit: s
+    scale: 0.1
+    description: Timer No. 1
+    short: timer 1
+
+102:
+    unit: s
+    scale: 0.1
+    description: Timer No. 2
+    short: timer 2
+
+103:
+    unit: s
+    scale: 0.1
+    description: Timer No. 3
+    short: timer 4
+
+104:
+    unit: s
+    scale: 0.1
+    description: Timer No. 4
+    short: timer 4
+
+105:
+    unit: s
+    scale: 0.1
+    description: Timer No. 5
+    short: timer 5
+
+106:
+    unit: s
+    scale: 0.1
+    description: Timer No. 6
+    short: timer 6
+
+107:
+    unit: s
+    scale: 0.1
+    description: Timer No. 7
+    short: timer 7
+
+108:
+    unit: s
+    scale: 0.1
+    description: Timer No. 8
+    short: timer 8
+
+109:
+    unit: s
+    scale: 0.1
+    description: Timer No. 9
+    short: timer 9
+
+110:
+    unit: s
+    scale: 0.1
+    description: Timer No. 10
+    short: timer 10
+
+111:
+    unit: s
+    scale: 0.1
+    description: Timer No. 11
+    short: timer 11
+
+112:
+    unit: s
+    scale: 0.1
+    description: Timer No. 12
+    short: timer 12
+
+113:
+    unit: s
+    scale: 0.1
+    description: Timer No. 13
+    short: timer 13
+
+114:
+    unit: s
+    scale: 0.1
+    description: Timer No. 14
+    short: timer 14
+
+115:
+    unit: s
+    scale: 0.1
+    description: Timer No. 15
+    short: timer 15
+
+116:
+    unit: s
+    scale: 0.1
+    description: Timer No. 16
+    short: timer 16
+
+117:
+    unit: discrete
+    scale: 1
+    description:
+    short: auto plc mem
+
+118:
+    unit: discrete
+    scale: 1
+    description:
+    short: overvolt stall protect
+
+119:
+    unit: arbitrary
+    scale: 1
+    description:
+    short: accel stall prevent level
+
+120:
+    unit: arbitrary
+    scale: 1
+    description:
+    short: const stall prevent level
+
+121:
+    unit: s
+    scale: 0.1
+    description:
+    short: stall prevent decel time
+
+122:
+    unit: arbitrary
+    scale: 1
+    description:
+    short: decel stall prevent level
+
+123:
+    unit: discrete
+    scale: 1
+    description:
+    short: overtorq mode
+
+124:
+    unit: arbitrary
+    scale: 1
+    description:
+    short: overtorq detect level
+
+125:
+    unit: s
+    scale: 0.1
+    description:
+    short: overtorq detect time
+
+126:
+    unit: discrete
+    scale: 1
+    description:
+    short: pulse cnt memory
+
+127:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+128:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+129:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+130:
+    unit: discrete
+    scale: 1
+    description:
+    short: nr aux pump
+
+131:
+    unit: min
+    scale: 1
+    description:
+    short: aux pump cont runtime
+
+132:
+    unit: s
+    scale: 1
+    description:
+    short: aux pump interlock time
+
+133:
+    unit: s
+    scale: 1
+    description:
+    short: hs run time
+
+134:
+    unit: s
+    scale: 1
+    description:
+    short: ls run time
+
+135:
+    unit: '%'
+    scale: 1
+    description:
+    short: stop volt level
+
+136:
+    unit: s
+    scale: 1
+    description:
+    short: volt stop time
+
+137:
+    unit: '%'
+    scale: 1
+    description:
+    short: wakeup level
+
+138:
+    unit: Hz
+    scale: 0.01
+    description:
+    short: sleep freq
+
+139:
+    unit: s
+    scale: 1
+    description:
+    short: sleep freq time
+
+140:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+141:
+    unit: V
+    scale: 0.1
+    description: Rated motor voltage
+    short: motor v
+
+142:
+    unit: A
+    scale: 0.1
+    description: Rated motor current
+    short: motor a
+
+143:
+    unit: counts
+    scale: 1
+    description: Motor pole number
+    short: motor poles
+
+144:
+    unit: rpm
+    scale: 1
+    description: Rated motor revolutions per minute
+    short: motor rpm
+
+145:
+    unit: arbitrary
+    scale: 0.1
+    description: automatic torqu compensation
+    short: auto torq
+
+146:
+    unit: arbitrary
+    scale: 1
+    description:
+    short: no load current
+
+147:
+    unit: arbitrary
+    scale: 0.1
+    description: motor slip compensation
+    short: slip comp
+
+148:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+149:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+150:
+    unit: discrete
+    scale: 1
+    description:
+    short: auto volt
+
+151:
+    unit: '%'
+    scale: 1
+    description:
+    short: auto energy save
+
+152:
+    unit: s
+    scale: 0.1
+    description:
+    short: fault restart time
+
+153:
+    unit: discrete
+    scale: 1
+    description:
+    short: restart after stop
+
+154:
+    unit: s
+    scale: 0.1
+    description:
+    short: allowed power down time
+
+155:
+    unit: counts
+    scale: 1
+    description:
+    short: no of abnormal restarts
+
+156:
+    unit: '%'
+    scale: 0.1
+    description:
+    short: P
+
+157:
+    unit: s
+    scale: 0.1
+    description:
+    short: I
+
+158:
+    unit: s
+    scale: 0.01
+    description:
+    short: D
+
+159:
+    unit: '%'
+    scale: 1
+    description:
+    short: target
+
+160:
+    unit: discrete
+    scale: 1
+    description:
+    short: target value select
+
+161:
+    unit: '%'
+    scale: 1
+    description:
+    short: pid upper limit
+
+162:
+    unit: '%'
+    scale: 1
+    description:
+    short: pid loer limit
+
+163:
+    unit: arbitrary
+    scale: 1
+    description: Communication address for pseudo-modbus
+    short: comm address
+
+164:
+    unit: discrete
+    scale: 1
+    description: RS485 baud rate
+    short: baudrate
+
+165:
+    unit: discrete
+    scale: 1
+    description: Communication protocol
+    short: comm protocol
+
+166:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+167:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+168:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+169:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+170:
+    unit: discrete
+    scale: 1
+    description:
+    short: display items
+
+171:
+    unit: discrete
+    scale: 1
+    description:
+    short: disp items open
+
+172:
+    unit: discrete
+    scale: 1
+    description:
+    short: fault clear
+
+173:
+    unit: V
+    scale: 0.1
+    description: Voltage rating of inverter
+    short: inverter v
+
+174:
+    unit: A
+    scale: 0.1
+    description: Current rating of inverter
+    short: inverter a
+
+175:
+    unit: discrete
+    scale: 1
+    description: Inverter model
+    short: model
+
+176:
+    unit: discrete
+    scale: 1
+    description: Inverter frequency standard
+    short: inverter mains freq
+
+177:
+    unit: discrete
+    scale: 1
+    description: Fault record 1
+    short: fault 1
+
+178:
+    unit: discrete
+    scale: 1
+    description: Fault record 2
+    short: fault 2
+
+179:
+    unit: discrete
+    scale: 1
+    description: Fault record 3
+    short: fault 3
+
+180:
+    unit: discrete
+    scale: 1
+    description: Fault record 4
+    short: fault 4
+
+181:
+    unit: arbitrary
+    scale: 1
+    description: Inverter software version
+    short: soft vers
+
+182:
+    unit: arbitrary
+    scale: 1
+    description: Manufacture date of inverter
+    short: manufacture date
+
+183:
+    unit: arbitrary
+    scale: 1
+    description: Inverter serial number
+    short: serial
+
+184:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+185:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+186:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+187:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+188:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+189:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+190:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+191:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+192:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+193:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+194:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+195:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+196:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+197:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+198:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+199:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
+200:
+    unit: reserved
+    scale: 1
+    description: reserved
+    short: reserved
+
