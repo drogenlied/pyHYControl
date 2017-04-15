@@ -65,7 +65,8 @@ if __name__ == '__main__':
 
     p = argparse.ArgumentParser('hycontrol', description='Interact with a Huanyang VFD.')
     p.add_argument('-d', '--device', default='/dev/ttyUSB0', help='Serial device')
-    p.add_argument('-b', '--baudrate', type=int, default=9600, help='Baud rate of connection')
+    p.add_argument('-b', '--baudrate', type=int,
+        choices=[4800, 9600, 19200, 38400], default=9600, help='Baud rate of connection')
     p.add_argument('-p', '--parity', default='N', choices=['N', 'E', 'O'], help='No / Odd / Even parity bit')
     p.add_argument('-a', '--address', type=int, default=1, help='Target device address')
     p.add_argument('-t', '--timeout', type=float, default=0.1, help='Read timeout in seconds')
