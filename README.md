@@ -8,7 +8,7 @@ The goal is to make configuring the VFD easier than punching in all register
 values through the control panel.
 
 I recommend that you set the following parameters by hand before attempting to communicate
-([thanks Bouni](https://gist.github.com/Bouni/803492ed0aab3f944066#file-hunayang-rs485-commands-md)):
+(thanks [Bouni](https://gist.github.com/Bouni/803492ed0aab3f944066#file-hunayang-rs485-commands-md) and the guys at [LinuxCNC](https://github.com/LinuxCNC/linuxcnc)):
 
  - PD163: 1 (Communication address: 1)
  - PD164: 1 (Communication Baud Rate: 9600)
