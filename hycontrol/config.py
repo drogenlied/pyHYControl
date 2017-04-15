@@ -1,5 +1,9 @@
-
-import yaml
+#
+from yaml import load, dump
+try:
+    from yaml import CLoader as Loader, CDumper as Dumper
+except ImportError:
+    from yaml import Loader, Dumper
 
 class VFDConf:
 
@@ -12,7 +16,7 @@ class VFDConf:
 
     def load(self, configfile):
         with open(configfile, 'r') as f:
-            rawcfg = yaml.load(f, Loader=yaml.CLoader)
+            rawcfg = load(f, Loader=Loader)
             if 'com_port' in rawcfg:
                 self.port = rawcfg['com_port']
             if 'baudrate' in rawcfg:
@@ -46,7 +50,7 @@ class RegisterMap:
     def __init__(self, mapfile):
         self.m = {}
         with open(mapfile, 'r') as f:
-            rawdata = yaml.load(f, Loader=yaml.CLoader)
+            rawdata = load(f, Loader=Loader)
             for addr, reg in rawdata.items():
                 self.m[addr] = Register(addr, **reg)
 
