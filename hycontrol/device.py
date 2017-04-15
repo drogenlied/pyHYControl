@@ -2,7 +2,7 @@
 import crcmod
 import struct
 import serial
-from .config import control_commands, control_status, control_values
+from .config import control_bits, status_bits, control_values
 
 crc16 = crcmod.predefined.mkPredefinedCrcFun('modbus')
 
@@ -34,6 +34,9 @@ def print_msg_error(message):
     print('calc_crc:', hy_crc(message[:-2]), 'sent_crc:', list(message[-2:]))
     print('data_length:', len(message[3:-2]), 'sent_length:', int(message[2]))
 
+def value_to_bits(value, bitdict):
+    return [desc for bit, desc in bitdict.items() if value & bit > 0]
+
 class VFDDevice:
 
     def __init__(self, config, regmap):
@@ -46,6 +49,9 @@ class VFDDevice:
             port=self.config.port,
             baudrate=self.config.rate,
             timeout=self.config.timeout)
+
+    def close(self):
+        self.conn.close()
 
     def is_parameter_reserved(self, parameter):
         return 'reserved' in self.m.reg(parameter).unit
@@ -77,13 +83,13 @@ class VFDDevice:
             ret = -1, 'Error'
         return ret
 
-    def write_function_data(self, parameter, data):
+    def write_function_data(self, parameter, value):
+        # needs more checks once we have ranges and discrete parameter values
+        converted = int(value / self.m.reg(parameter).scale)
+        # now pack up the data
         pdata = [parameter]
-        if data == 0:
-            pdata.append(0)
-        else:
-            pdata.extend(
-                list(data.to_bytes((data.bit_length() + 7) // 8, 'big')))
+        converted_length = max(1, (converted.bit_length() + 7) // 8)
+        pdata.extend(list(converted.to_bytes(converted_length, 'big')))
         packet = self.build_packet(0x02, pdata)
         self.conn.write(bytes(packet))
         ans = self.conn.read(8)
@@ -105,8 +111,8 @@ class VFDDevice:
         if check_msg(ans):
             rdata = ans[3:-2]
             value = int.from_bytes(bytes(rdata), byteorder='big')
-            print('Command:', control_commands[int(data)])
-            print('Status:', control_status[value])
+            print('Command:', value_to_bits(int(data), control_bits))
+            print('Status:', value_to_bits(value, status_bits))
             ret = value
         else:
             print_msg_error(ans)
@@ -137,7 +143,7 @@ class VFDDevice:
             pdata.extend([0, 0])
         else:
             pdata.extend(
-                list((freq * 100).to_bytes(2, 'big')))
+                list(int(freq * 100).to_bytes(2, 'big')))
 
         packet = self.build_packet(0x05, pdata)
         self.conn.write(bytes(packet))
