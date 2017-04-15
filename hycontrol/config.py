@@ -17,6 +17,8 @@ class VFDConf:
                 self.port = rawcfg['com_port']
             if 'baudrate' in rawcfg:
                 self.rate = rawcfg['baudrate']
+            if 'parity' in rawcfg:
+                self.parity = rawcfg['parity']
             if 'bus_address' in rawcfg:
                 self.address = rawcfg['bus_address']
             if 'timeout' in rawcfg:

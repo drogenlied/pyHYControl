@@ -4,6 +4,12 @@ import struct
 import serial
 from .config import control_bits, status_bits, control_values
 
+paritymap = {
+    'N': serial.PARITY_NONE,
+    'E': serial.PARITY_EVEN,
+    'O': serial.PARITY_ODD
+}
+
 crc16 = crcmod.predefined.mkPredefinedCrcFun('modbus')
 
 def hy_crc(message):
@@ -48,7 +54,9 @@ class VFDDevice:
         self.conn = serial.Serial(
             port=self.config.port,
             baudrate=self.config.rate,
-            timeout=self.config.timeout)
+            parity=paritymap[self.config.parity],
+            timeout=self.config.timeout
+            )
 
     def close(self):
         self.conn.close()
