@@ -16,7 +16,7 @@ I recommend that you set the following parameters by hand before attempting to c
 
 Afterwards, communicating with the VFD controller through an RS232 to RS485 converter is straightforward.
 
-# hycotrol command
+# hycontrol command
 The command line utility in this module can be used with `python3 -m hycontrol [options] subcommand <command parameters>`.
 Use the `-h` option or no option and subcommand to display the command help.
 
