@@ -15,3 +15,10 @@ I recommend that you set the following parameters by hand before attempting to c
  - PD165: 3 (Communication Data Method: 8N1 RTU)
 
 Afterwards, communicating with the VFD controller through an RS232 to RS485 converter is straightforward.
+
+# hycotrol command
+The command line utility in this module can be used with `python3 -m hycontrol [options] subcommand <command parameters>`.
+Use the `-h` option or no option and subcommand to display the command help.
+
+# classes
+You can also use the classes directly, see `hycontrol.config` for configuration related classes like device parameters and the register map and `hycontrol.device` for the `VFDDevice` class that handles communication with the VFD.
