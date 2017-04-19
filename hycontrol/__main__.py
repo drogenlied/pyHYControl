@@ -1,5 +1,6 @@
 
 import os
+import sys
 import time
 import argparse
 
@@ -103,6 +104,10 @@ if __name__ == '__main__':
 
     args = p.parse_args()
     #print(args)
+
+    if getattr(args, 'function', None) is None:
+        print('No subcommand specified. Use -h to show subcommands.')
+        sys.exit(1)
 
     conf = VFDConf(
         port=args.device,
