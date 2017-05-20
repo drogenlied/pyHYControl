@@ -77,6 +77,7 @@ class VFDDevice:
         return packet
 
     def read_function_data(self, parameter):
+        reg = self.m.reg(parameter)
         packet = self.build_packet(0x01, [parameter])
         self.conn.write(bytes(packet))
         ans = self.conn.read(8)
@@ -85,15 +86,22 @@ class VFDDevice:
             param = data[0]
             value = int.from_bytes(bytes(data[1:]), byteorder='big')
             print('read:', self.m.reg(parameter).format_value(value))
-            ret = value * self.m.reg(parameter).scale, self.m.reg(parameter).unit
+            if reg.unit == 'discrete':
+                ret = value, reg.discrete_value(value)
+            else:
+                ret = value * reg.scale, reg.unit
         else:
             print_msg_error(ans)
             ret = -1, 'Error'
         return ret
 
     def write_function_data(self, parameter, value):
-        # needs more checks once we have ranges and discrete parameter values
-        converted = int(value / self.m.reg(parameter).scale)
+        reg = self.m.reg(parameter)
+        if reg.unit == 'discrete':
+            converted = int(value)
+        else:
+            # needs more checks once we have ranges and discrete parameter values
+            converted = int(value / reg.scale)
         # now pack up the data
         pdata = [parameter]
         converted_length = max(1, (converted.bit_length() + 7) // 8)
@@ -105,8 +113,11 @@ class VFDDevice:
             rdata = ans[3:-2]
             param = rdata[0]
             value = int.from_bytes(bytes(rdata[1:]), byteorder='big')
-            print('written:', self.m.reg(parameter).format_value(value))
-            ret = value * self.m.reg(parameter).scale, self.m.reg(parameter).unit
+            print('written:', reg.format_value(value))
+            if reg.unit == 'discrete':
+                ret = value, reg.discrete_value(value)
+            else:
+                ret = value * reg.scale, reg.unit
         else:
             print_msg_error(ans)
             ret = -1, 'Error'

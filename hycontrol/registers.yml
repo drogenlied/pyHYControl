@@ -1,17 +1,28 @@
 0:
     unit: discrete
+    values:
+        0: unlocked
+        1: locked
     scale: 1
     description: Lock parameters against changes
     short: parameter lock
 
 1:
     unit: discrete
+    values:
+        0: operator
+        1: external terminals
+        2: communication port
     scale: 1
     description: Source of run command
     short: run source
 
 2:
     unit: discrete
+    values:
+        0: operator
+        1: external terminals
+        2: communication port
     scale: 1
     description: Source of operating frequency
     short: frequency source
@@ -25,46 +36,53 @@
 4:
     unit: Hz
     scale: 0.01
+    short: base frequency
 
 5:
     unit: Hz
     scale: 0.01
+    short: maximum operating frequrncy
 
 6:
     unit: Hz
     scale: 0.01
+    short: intermediate frequency
 
 7:
     unit: Hz
     scale: 0.01
+    short: minimum frequency
 
 8:
     unit: V
     scale: 0.1
+    short: maximum voltage
 
 9:
     unit: V
     scale: 0.1
+    short: intermediate voltage
 
 10:
     unit: V
     scale: 0.1
+    short: minimum voltage
 
 11:
     unit: Hz
     scale: 0.01
+    short: lower frequency limit
 
 12:
     unit: reserved
-    scale: 1
-    decription: reserved
-    short: reserved
 
 13:
     unit: discrete
+    values:
+        8: restore default parameters
     scale: 1
-    decription: Reset system
-    short: reset system
+    decription: Reset all system parameters
+    short: reset system parameters
 
 14:
     unit: s
@@ -116,30 +134,39 @@
 
 22:
     unit: reserved
-    scale: 1
-    decription: reserved
-    short: reserved
 
 23:
     unit: discrete
+    values:
+        0: reverse rotation forbidden
+        1: reverse rotation allowed
     scale: 1
     decription: Allow reverse rotation
-    short: reverse
+    short: reverse allow
     
 24:
     unit: discrete
+    values:
+        0: operator stop button forbidden
+        1: operator stop button allowed
     scale: 1
-    decription: STOP key select
+    decription: operator STOP key selection
     short: stop key
 
 25:
     unit: discrete
+    values:
+        0: start from starting frequency
+        1: frequency tracking start
     scale: 1
     decription: Starting mode
     short: start mode
 
 26:
     unit: discrete
+    values:
+        0: decelerate to stop
+        1: coast to stop
     scale: 1
     decription: Stopping mode
     short: stop mode
@@ -147,74 +174,80 @@
 27:
     unit: Hz
     scale: 0.1
+    short: starting freq
 
 28:
     unit: Hz
     scale: 0.1
+    short: stopping freq
 
 29:
     unit: s
     scale: 0.1
+    short: start braking time
 
 30:
     unit: s
     scale: 0.1
+    short: stop braking time
 
 31:
     unit: '%'
     scale: 0.1
-    description: braking level
+    description: DC braking level
 
 32:
     unit: s
     scale: 0.1
+    short: freq track time
 
 33:
     unit: s
     scale: 0.1
+    short: freq track current
 
 34:
     unit: s
     scale: 0.1
+    short: track PWM factor??
 
 35:
     unit: reserved
-    scale: 1
-    decription: reserved
-    short: reserved
 
 36:
     unit: reserved
-    scale: 1
-    decription: reserved
-    short: reserved
 
 37:
     unit: reserved
-    scale: 1
-    decription: reserved
-    short: reserved
 
 38:
     unit: reserved
-    scale: 1
-    decription: reserved
-    short: reserved
 
 39:
     unit: reserved
-    scale: 1
-    decription: reserved
-    short: reserved
 
 40:
     unit: reserved
-    scale: 1
-    decription: reserved
-    short: reserved
 
 41:
     unit: discrete
+    values:
+        0: 100Hz
+        1: 1kHz
+        2: 1.5kHz
+        3: 2kHz
+        4: 3kHz
+        5: 4kHz
+        6: 5kHz
+        7: 7kHz
+        8: 8kHz
+        9: 9kHz
+        10: 10kHz
+        11: 11kHz
+        12: 13kHz
+        13: 15kHz
+        14: 17kHz
+        15: 20kHz
     scale: 1
     description:
     short: carrier frequency
@@ -233,75 +266,424 @@
 
 44:
     unit: discrete
+    values:
+        0: input disabled
+        1: running status
+        2: forward rotatiom
+        3: reverse rotation
+        4: stop
+        5: switch forward/reverse
+        6: jog
+        7: jog forwards
+        8: jog reverse
+        9: ext timer 1 start
+        10: ext timer 2 start
+        11: reserved
+        12: ext temperature alert
+        13: emergency stop
+        14: fault reset
+        15: reserved
+        16: reserved
+        17: ramp time 1
+        18: ramp time 2
+        19: multi speed 1
+        20: multi speed 2
+        21: multi speed 3
+        22: high speed
+        23: middle speed
+        24: low speed
+        25: run PID
+        26: PLC reset suspend
+        27: UP function
+        28: DOWN function
+        29: drawing start
+        30: reserved
+        31: pulse counter input
+        32: counter reset
     scale: 1
     description:
-    short: for term
+    short: FOR terminal
 
 45:
     unit: discrete
+    values:
+        0: input disabled
+        1: running status
+        2: forward rotatiom
+        3: reverse rotation
+        4: stop
+        5: switch forward/reverse
+        6: jog
+        7: jog forwards
+        8: jog reverse
+        9: ext timer 1 start
+        10: ext timer 2 start
+        11: reserved
+        12: ext temperature alert
+        13: emergency stop
+        14: fault reset
+        15: reserved
+        16: reserved
+        17: ramp time 1
+        18: ramp time 2
+        19: multi speed 1
+        20: multi speed 2
+        21: multi speed 3
+        22: high speed
+        23: middle speed
+        24: low speed
+        25: run PID
+        26: PLC reset suspend
+        27: UP function
+        28: DOWN function
+        29: drawing start
+        30: reserved
+        31: pulse counter input
+        32: counter reset
     scale: 1
     description:
-    short: rev term
+    short: REV terminal
 
 46:
     unit: discrete
+    values:
+        0: input disabled
+        1: running status
+        2: forward rotatiom
+        3: reverse rotation
+        4: stop
+        5: switch forward/reverse
+        6: jog
+        7: jog forwards
+        8: jog reverse
+        9: ext timer 1 start
+        10: ext timer 2 start
+        11: reserved
+        12: ext temperature alert
+        13: emergency stop
+        14: fault reset
+        15: reserved
+        16: reserved
+        17: ramp time 1
+        18: ramp time 2
+        19: multi speed 1
+        20: multi speed 2
+        21: multi speed 3
+        22: high speed
+        23: middle speed
+        24: low speed
+        25: run PID
+        26: PLC reset suspend
+        27: UP function
+        28: DOWN function
+        29: drawing start
+        30: reserved
+        31: pulse counter input
+        32: counter reset
     scale: 1
     description:
-    short: rst term
+    short: RST terminal
 
 47:
     unit: discrete
+    values:
+        0: input disabled
+        1: running status
+        2: forward rotatiom
+        3: reverse rotation
+        4: stop
+        5: switch forward/reverse
+        6: jog
+        7: jog forwards
+        8: jog reverse
+        9: ext timer 1 start
+        10: ext timer 2 start
+        11: reserved
+        12: ext temperature alert
+        13: emergency stop
+        14: fault reset
+        15: reserved
+        16: reserved
+        17: ramp time 1
+        18: ramp time 2
+        19: multi speed 1
+        20: multi speed 2
+        21: multi speed 3
+        22: high speed
+        23: middle speed
+        24: low speed
+        25: run PID
+        26: PLC reset suspend
+        27: UP function
+        28: DOWN function
+        29: drawing start
+        30: reserved
+        31: pulse counter input
+        32: counter reset
     scale: 1
     description:
-    short: sph term
+    short: SPH terminal
 
 48:
     unit: discrete
+    values:
+        0: input disabled
+        1: running status
+        2: forward rotatiom
+        3: reverse rotation
+        4: stop
+        5: switch forward/reverse
+        6: jog
+        7: jog forwards
+        8: jog reverse
+        9: ext timer 1 start
+        10: ext timer 2 start
+        11: reserved
+        12: ext temperature alert
+        13: emergency stop
+        14: fault reset
+        15: reserved
+        16: reserved
+        17: ramp time 1
+        18: ramp time 2
+        19: multi speed 1
+        20: multi speed 2
+        21: multi speed 3
+        22: high speed
+        23: middle speed
+        24: low speed
+        25: run PID
+        26: PLC reset suspend
+        27: UP function
+        28: DOWN function
+        29: drawing start
+        30: reserved
+        31: pulse counter input
+        32: counter reset
     scale: 1
     description:
-    short: spl term
+    short: SPL terminal
 
 49:
     unit: discrete
+    values:
+        0: input disabled
+        1: running status
+        2: forward rotatiom
+        3: reverse rotation
+        4: stop
+        5: switch forward/reverse
+        6: jog
+        7: jog forwards
+        8: jog reverse
+        9: ext timer 1 start
+        10: ext timer 2 start
+        11: reserved
+        12: ext temperature alert
+        13: emergency stop
+        14: fault reset
+        15: reserved
+        16: reserved
+        17: ramp time 1
+        18: ramp time 2
+        19: multi speed 1
+        20: multi speed 2
+        21: multi speed 3
+        22: high speed
+        23: middle speed
+        24: low speed
+        25: run PID
+        26: PLC reset suspend
+        27: UP function
+        28: DOWN function
+        29: drawing start
+        30: reserved
+        31: pulse counter input
+        32: counter reset
     scale: 1
     description:
-    short: spm term
+    short: SPM terminal
 
 50:
     unit: discrete
+    values:
+        0: output disabled
+        1: run
+        2: zero speed
+        3: fault
+        4: braking
+        5: set frequency reached
+        6: accelerating
+        7: decelerating
+        8: frequency 1 (PD060) reached
+        9: frequency 2 (PD061) reached
+        10: motor overload alarm
+        11: over-tourque alarm
+        12: inverter overload alarm
+        13: set counter (PD065) reached
+        14: middle counter (PD066) reached
+        15: timer 1 finished
+        16: timer 2 finished
+        17: low voltage alarm
+        18: single stage end
+        19: process end
+        20: AI disconnected (only if PD72 > 2)
+        21: reserved
+        22: reserved
+        23: reserved
+        24: reserved
+        25: auxiliary pump 1
+        26: auxiliary pump 2
+        27: drawing reached
+        28: PID at lower limit (PD162)
+        29: PID at upper limit (PD161)
+        30: braking resistor active
+        31: relay active
+        32: fan active
     scale: 1
     description:
-    short: y1 out
+    short: Y1 output
 
 51:
     unit: discrete
+    values:
+        0: output disabled
+        1: run
+        2: zero speed
+        3: fault
+        4: braking
+        5: set frequency reached
+        6: accelerating
+        7: decelerating
+        8: frequency 1 (PD060) reached
+        9: frequency 2 (PD061) reached
+        10: motor overload alarm
+        11: over-tourque alarm
+        12: inverter overload alarm
+        13: set counter (PD065) reached
+        14: middle counter (PD066) reached
+        15: timer 1 finished
+        16: timer 2 finished
+        17: low voltage alarm
+        18: single stage end
+        19: process end
+        20: AI disconnected (only if PD72 > 2)
+        21: reserved
+        22: reserved
+        23: reserved
+        24: reserved
+        25: auxiliary pump 1
+        26: auxiliary pump 2
+        27: drawing reached
+        28: PID at lower limit (PD162)
+        29: PID at upper limit (PD161)
+        30: braking resistor active
+        31: relay active
+        32: fan active
     scale: 1
     description:
-    short: y2 out
+    short: Y2 output
 
 52:
     unit: discrete
+    values:
+        0: output disabled
+        1: run
+        2: zero speed
+        3: fault
+        4: braking
+        5: set frequency reached
+        6: accelerating
+        7: decelerating
+        8: frequency 1 (PD060) reached
+        9: frequency 2 (PD061) reached
+        10: motor overload alarm
+        11: over-tourque alarm
+        12: inverter overload alarm
+        13: set counter (PD065) reached
+        14: middle counter (PD066) reached
+        15: timer 1 finished
+        16: timer 2 finished
+        17: low voltage alarm
+        18: single stage end
+        19: process end
+        20: AI disconnected (only if PD72 > 2)
+        21: reserved
+        22: reserved
+        23: reserved
+        24: reserved
+        25: auxiliary pump 1
+        26: auxiliary pump 2
+        27: drawing reached
+        28: PID at lower limit (PD162)
+        29: PID at upper limit (PD161)
+        30: braking resistor active
+        31: relay active
+        32: fan active
     scale: 1
     description:
-    short: fa, fb, fc
+    short: FA, FB, FC outputs
 
 53:
     unit: discrete
+    values:
+        0: output disabled
+        1: run
+        2: zero speed
+        3: fault
+        4: braking
+        5: set frequency reached
+        6: accelerating
+        7: decelerating
+        8: frequency 1 (PD060) reached
+        9: frequency 2 (PD061) reached
+        10: motor overload alarm
+        11: over-tourque alarm
+        12: inverter overload alarm
+        13: set counter (PD065) reached
+        14: middle counter (PD066) reached
+        15: timer 1 finished
+        16: timer 2 finished
+        17: low voltage alarm
+        18: single stage end
+        19: process end
+        20: AI disconnected (only if PD72 > 2)
+        21: reserved
+        22: reserved
+        23: reserved
+        24: reserved
+        25: auxiliary pump 1
+        26: auxiliary pump 2
+        27: drawing reached
+        28: PID at lower limit (PD162)
+        29: PID at upper limit (PD161)
+        30: braking resistor active
+        31: relay active
+        32: fan active
     scale: 1
     description:
-    short: ka, kb
+    short: KA, KB outputs
 
 54:
     unit: discrete
+    values:
+        0: 0-10V analog output, corresponds to 0 to max frequency
+        1: 0-10V analog output, corresponds to 0 to 2 * max inverter current
+        2: 0-10V analog output, corresponds to 0 to 1000V DC bus voltage
+        3: 0-10V analog output, corresponds to 0 255V for 220V single phase and 0 to 510V vor 380V three-phase
+        4: pulse output, 1 pulse per Hz, 50% duty cycle
+        5: pulse output, 2 pulses per Hz, 50% duty cycle
+        6: pulse output, 3 pulses per Hz, 50% duty cycle
+        7: pulse output, 6 pulses per Hz, 50% duty cycle
     scale: 1
     description:
-    short: vo output
+    short: VO output
 
 55:
     unit: '%'
     scale: 0.1
     description:
-    short: vo gain
+    short: VO gain
 
 56:
     unit: Hz
@@ -371,24 +753,21 @@
 
 67:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 68:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 69:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 70:
     unit: discrete
+    values:
+        0: 0V to 10V
+        1: 0V to 5V
+        2: 0mA to 20mA
+        3: 4mA to 20mA
+        4: 0V to 10V, 4mA to 20mA stacked: freqency = 1/2 (U / Umax + I / Imax) * 50Hz
     scale: 1
     description:
     short: analog in
@@ -413,39 +792,52 @@
 
 74:
     unit: discrete
+    values:
+        0: positive direction
+        1: negative direction
     scale: 1
     description:
-    short: high freq bias
+    short: high freq bias direction
 
 75:
     unit: discrete
+    values:
+        0: positive direction
+        1: negative direction
+    scale: 1
     scale: 1
     description:
-    short: low freq bias
+    short: low freq bias direction
 
 76:
     unit: discrete
+    values:
+        0: no reverse bias
+        1: reverse bias
     scale: 1
     description:
     short: analog reverese bias
 
 77:
     unit: discrete
+    values:
+        0: not memorized
+        1: memorized
     scale: 1
     description:
-    short: up/down fct
+    short: up/down function memory
 
 78:
     unit: discrete
+    values:
+        0: up/down speed is 0.01Hz
+        1: up/down speed is 0.1Hz
     scale: 1
     description:
     short: up/down speed
 
 79:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 80:
     unit: discrete
@@ -677,18 +1069,21 @@
 
 118:
     unit: discrete
+    values:
+        0: inactive
+        1: activw
     scale: 1
     description:
     short: overvolt stall protect
 
 119:
-    unit: arbitrary
+    unit: '%'
     scale: 1
     description:
     short: accel stall prevent level
 
 120:
-    unit: arbitrary
+    unit: '%'
     scale: 1
     description:
     short: const stall prevent level
@@ -700,13 +1095,18 @@
     short: stall prevent decel time
 
 122:
-    unit: arbitrary
+    unit: '%'
     scale: 1
     description:
     short: decel stall prevent level
 
 123:
     unit: discrete
+    values:
+        0: detect and ignore over-tourqe after reaching set frequency
+        1: detect and stop after reaching set frequency
+        2: detect and ignore over-tourque
+        3: detect over-tourque and stop
     scale: 1
     description:
     short: overtorq mode
@@ -715,42 +1115,36 @@
     unit: arbitrary
     scale: 1
     description:
-    short: overtorq detect level
+    short: over-torque detect level
 
 125:
     unit: s
     scale: 0.1
     description:
-    short: overtorq detect time
+    short: over-torque detect time
 
 126:
     unit: discrete
+    values:
+        0: not stored
+        1: stored
     scale: 1
     description:
-    short: pulse cnt memory
+    short: pulse counter memory
 
 127:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 128:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 129:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 130:
-    unit: discrete
+    unit: counts
     scale: 1
-    description:
+    description: number of auxiliary pumps
     short: nr aux pump
 
 131:
@@ -809,9 +1203,6 @@
 
 140:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 141:
     unit: V
@@ -857,21 +1248,18 @@
 
 148:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 149:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 150:
     unit: discrete
+    values:
+        0: disabled
+        1: enabled
     scale: 1
     description:
-    short: auto volt
+    short: auto voltage regulation
 
 151:
     unit: '%'
@@ -887,8 +1275,11 @@
 
 153:
     unit: discrete
+    values:
+        0: no restart
+        1: frequency track restart
     scale: 1
-    description:
+    description: restart after power breakdown
     short: restart after stop
 
 154:
@@ -929,21 +1320,24 @@
 
 160:
     unit: discrete
+    values:
+        0: target value set by PD159
+        1: target value set by external 0-10V
     scale: 1
     description:
-    short: target value select
+    short: PID target value select
 
 161:
     unit: '%'
     scale: 1
     description:
-    short: pid upper limit
+    short: PID upper limit
 
 162:
     unit: '%'
     scale: 1
     description:
-    short: pid loer limit
+    short: PID lower limit
 
 163:
     unit: arbitrary
@@ -953,54 +1347,72 @@
 
 164:
     unit: discrete
+    values:
+        0: 4800 baud/s
+        1: 9600 baud/s
+        2: 19200 baud/s
+        3: 38400 baud/s
     scale: 1
     description: RS485 baud rate
     short: baudrate
 
 165:
     unit: discrete
+    values:
+        0: 8N1 ASCII
+        1: 8E1 ASCII
+        2: 8O1 ASCII
+        3: 8N1 RTU
+        4: 8E1 RTU
+        5: 8O1 RTU
     scale: 1
-    description: Communication protocol
+    description: Data encoding for serial communication
     short: comm protocol
 
 166:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 167:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 168:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 169:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 170:
     unit: discrete
+    values:
+        0: inverter temperature
+        1: counter value
+        2: PID target value
+        3: PID feedback value
+        4: current power on time
+        5: total power on time
     scale: 1
     description:
     short: display items
 
 171:
     unit: discrete
+    values:
+        0: No item
+        1: DC voltage
+        2: AC voltage
+        3: DC and AC voltage
+        4: item from PD170
+        5: item from PD170 and DC voltage
+        6: item from PD170 and AC voltage
+        7: item from PD170 and DC and AC voltage
     scale: 1
     description:
     short: disp items open
 
 172:
     unit: discrete
+    values:
+        1: fault clear
     scale: 1
     description:
     short: fault clear
@@ -1019,12 +1431,18 @@
 
 175:
     unit: discrete
+    values:
+        0: constant torque
+        1: some sort of fan
     scale: 1
     description: Inverter model
     short: model
 
 176:
     unit: discrete
+    value:
+        0: 50Hz
+        1: 60Hz
     scale: 1
     description: Inverter frequency standard
     short: inverter mains freq
@@ -1073,103 +1491,52 @@
 
 184:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 185:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 186:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 187:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 188:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 189:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 190:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 191:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 192:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 193:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 194:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 195:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 196:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 197:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 198:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 199:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 
 200:
     unit: reserved
-    scale: 1
-    description: reserved
-    short: reserved
 

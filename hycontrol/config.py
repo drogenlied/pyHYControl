@@ -30,10 +30,14 @@ class VFDConf:
 
 class Register:
 
-    def __init__(self, address, unit='', scale='', description='', short='', **kwargs):
+    def __init__(self, address, unit='', values=None, scale=1, description='', short='', **kwargs):
         self.address = address
-        self.scale = scale
         self.unit = unit
+        self.scale = scale
+        self.values = {}
+        if values is not None:
+            self.values.update(values)
+
         self.description = description
         self.shortdesc = short
         self.value = None
@@ -43,7 +47,16 @@ class Register:
     {3}\n""".format(self.address, self.shortdesc, self.description, self.unit, self.scale)
 
     def format_value(self, value):
-        return 'PD{0:03d}: {1} {2}'.format(self.address, value * self.scale, self.unit)
+        if self.unit == 'discrete':
+            return 'PD{0:03d}: {1} {2}'.format(self.address, value, self.discrete_value(value))
+        else:
+            return 'PD{0:03d}: {1} {2}'.format(self.address, value * self.scale, self.unit)
+
+    def discrete_value(self, value):
+        try:
+            return self.values[value]
+        except KeyError:
+            return 'Unknown discrete value'
 
 class RegisterMap:
 
