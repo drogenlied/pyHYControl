@@ -52,9 +52,15 @@ def write_command(device, args):
 
 def read_status(device, args):
     cv = control_values
-    cmd = [k for k, v in cv.items() if v['short'] == args.indicator][0]
-    ret = device.read_control_data(cmd)
-    print('{}: {:.2f} {}'.format(cv[cmd]['short'], ret[0], ret[1]))
+    if args.indicator == 'all':
+        for ind in ('fset', 'fout', 'aout', 'rpm', 'vdc', 'vac', 'cont', 'temp'):
+            cmd = [k for k, v in cv.items() if v['short'] == ind][0]
+            ret = device.read_control_data(cmd)
+            print('{}: {:.2f} {}'.format(cv[cmd]['short'], ret[0], ret[1]))
+    else:
+        cmd = [k for k, v in cv.items() if v['short'] == args.indicator][0]
+        ret = device.read_control_data(cmd)
+        print('{}: {:.2f} {}'.format(cv[cmd]['short'], ret[0], ret[1]))
 
 def write_frequency(device, args):
     device.write_freq(args.frequency)
@@ -90,7 +96,7 @@ if __name__ == '__main__':
 
     sp = sub.add_parser('status', aliases=['s', 'stat'], help='Get status indicator from VFD.')
     sp.add_argument('indicator',
-        choices=[v['short'] for k, v in control_values.items()],
+        choices=[v['short'] for k, v in control_values.items()].append('all'),
         help='Status indicator to be read from VFD.')
     sp.set_defaults(function=read_status)
 

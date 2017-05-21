@@ -767,7 +767,7 @@
         1: 0V to 5V
         2: 0mA to 20mA
         3: 4mA to 20mA
-        4: 0V to 10V, 4mA to 20mA stacked: freqency = 1/2 (U / Umax + I / Imax) * 50Hz
+        4: '0V to 10V, 4mA to 20mA stacked: freqency = 1/2 (U / Umax + I / Imax) * 50Hz'
     scale: 1
     description:
     short: analog in
